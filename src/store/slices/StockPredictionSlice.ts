@@ -1,41 +1,41 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
-interface IStockPriceState {
+interface IStockPredictionState {
     stocks: string[],
-    buttonEnabled: boolean,
     reportLoading: boolean,
     report: null | string,
-    stockLength: number
+    stockLength: number,
+    reportGenerationFailed: boolean
 }
 
-const initialState: IStockPriceState = {
+const initialState: IStockPredictionState = {
     stocks: [],
-    buttonEnabled: false,
     reportLoading: false,
     report: null,
     stockLength: 0,
+    reportGenerationFailed: false
 }
 
-const stockPriceSlice = createSlice({
+const stockPredictionSlice = createSlice({
     name: "stockPrice",
     initialState,
     reducers: {
-        addStock: (state: IStockPriceState, action: PayloadAction<string>) => {
+        addStock: (state: IStockPredictionState, action: PayloadAction<string>) => {
             state.stocks.push(action.payload);
             state.stockLength++;
         },
-        toggleGenerateReport: (state: IStockPriceState, action: PayloadAction<boolean>) => {
-            state.buttonEnabled = action.payload
-        },
-        toggleReportLoading: (state: IStockPriceState, action: PayloadAction<boolean>) => {
+        toggleReportLoading: (state: IStockPredictionState, action: PayloadAction<boolean>) => {
             state.reportLoading = action.payload
         },
-        setReport: (state: IStockPriceState, action: PayloadAction<string>) => {
+        setReport: (state: IStockPredictionState, action: PayloadAction<string>) => {
             state.report = action.payload
+        },
+        setReportGenerationFailed: (state: IStockPredictionState, action: PayloadAction<boolean>) => {
+            state.reportGenerationFailed = action.payload
         }
     }
 });
 
-export const {addStock, toggleGenerateReport, toggleReportLoading, setReport} = stockPriceSlice.actions;
+export const {addStock, toggleReportLoading, setReport, setReportGenerationFailed} = stockPredictionSlice.actions;
 
-export default stockPriceSlice.reducer;
+export default stockPredictionSlice.reducer;
