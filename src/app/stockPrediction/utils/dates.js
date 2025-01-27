@@ -12,6 +12,6 @@ function getDateNDaysAgo(n) {
 }
 
 export const dates = {
-    startDate: getDateNDaysAgo(3),
+    startDate: getDateNDaysAgo(6),
     endDate: getDateNDaysAgo(1)
 }
