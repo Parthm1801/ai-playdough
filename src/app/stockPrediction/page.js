@@ -26,5 +26,5 @@ const StockPredictionPage = () => {
         }
     </div>
 }
-
+export const runtime = "edge";
 export default StockPredictionPage;
