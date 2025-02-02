@@ -1,9 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import StockPredictionSlice from "./slices/StockPredictionSlice";
+import askMyDocumentSlice from "./slices/AskMyDocumentSlice";
+import popChoiceSlice from "./slices/PopChoiceSlice";
 
 const store = configureStore({
     reducer: {
         stockPrediction: StockPredictionSlice,
+        askMyDocument: askMyDocumentSlice,
+        popChoice: popChoiceSlice
     },
 });
 
